@@ -5,7 +5,7 @@
   </section>
 </div>
 <div v-else>
-  <h3 class="p-6 uppercase font-bold">Peliculas populares</h3>
+  <h3 class="p-6 uppercase font-bold">Mejores peliculas</h3>
   <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 place">
     <Card v-for="movie in movies" :key="movie.id" :movie="movie"/>
   </div>
@@ -24,7 +24,7 @@ export default {
       const loading = ref(true)
 
       const getMovies = () => {
-        store.dispatch('getMovies')
+        store.dispatch('getMoviesTopRated')
           .then(resp => resp.state === 1 ? loading.value = false : loading.value = true)
       }
       getMovies()
